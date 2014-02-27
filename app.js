@@ -122,7 +122,7 @@ app.get("/api/search::term", function(req, res){	useApi(api.gameinfo.search, { n
 			//This should be cached
 			try
 			{
-			useApi(api.gameinfo.get, { id: game.id}, function (gameInfo, infoErr) {  game.info = gameInfo||infoErr;markCompleted(game.id, infoErr);});
+			useApi(api.gameinfo.get, { id: game.id}, function (gameInfo, infoErr) {  game.info = gameInfo; if (infoErr) game.error = infoErr; markCompleted(game.id, infoErr);});
 			} catch(ex)
 			{
 				console.log('Error while retrieving info for id ', game.id, ex);

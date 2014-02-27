@@ -32,7 +32,7 @@
 					+ "<h3><%= value %></h3>"
 					+" <ul>"
 					+ "<% _.each(games, function(game) { %> " 
-					+ "<li class='searchResult'><img class='cover'/><a class='title' href='/game/<%= game.id %>'><%= game.GameTitle %></a></li>" 
+					+ "<li class='searchResult'><img class='cover'/><a class='title' href='/api/get:<%= game.id %>'><%= game.GameTitle %></a></li>" 
 					+ " <% }); %>"
 					+ "</ul>"
 					+"</li>"
