@@ -1,0 +1,61 @@
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="/js/underscore.js"></script>
+	<script type="text/javascript">
+		var apiProvider = {
+			
+			searchGame: function (term, successCallback, failCallback, completeCallback)
+			{
+				console.log("Searching game " + term);
+				$.ajax({
+					dataType:"json",
+					url:"/api/search:" + term,
+					success:successCallback,
+					error: failCallback,
+					complete:completeCallback
+				})
+			}
+		};
+		
+		
+		$(function() 
+		{
+			var showSearchResults = function (data)
+			{
+				console.dir(_.groupBy(data.games, 'Platform'));
+				var resultDiv = $("#searchResults");
+				resultDiv.empty();
+				var itemTemplate = _.template(""
+					+ "<% _.each(_.groupBy(games, 'Platform'), function(games, value, context) { %> " 
+					+ "<li class='searchResultPlatform'>"
+					+ "<h3><%= value %></h3>"
+					+" <ul>"
+					+ "<% _.each(games, function(game) { %> " 
+					+ "<li class='searchResult'><img class='cover'/><a class='title' href='/game/<%= game.id %>'><%= game.GameTitle %></a></li>" 
+					+ " <% }); %>"
+					+ "</ul>"
+					+"</li>"
+					+ " <% }); %>");
+				
+				 resultDiv.append($(itemTemplate(data)));
+			};
+			$("#searchGameButton").click(function(e)
+			{
+				apiProvider.searchGame($("#searchGameTerm").val(), showSearchResults);
+			});
+		});
+	</script>
+</head>
+<body>
+
+<div>
+<div>Search for a game</div>
+<input id="searchGameTerm" type="text" name="keywords" /> <button id="searchGameButton">Search</button>
+</div>
+<div>
+	<ul id="searchResults">
+	</ul>
+</div>
+</body>
+</html>
