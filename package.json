@@ -1,0 +1,34 @@
+{
+  "name": "gamershelves",
+  "version": "0.0.1",
+  "description": "Shelves for our games!",
+  "main": "app.js",
+  "dependencies": {
+    "express": "~3.4.8",
+	"underscore": "~1.6.0",
+	"underscore.string":"~2.3.3",
+	"xml2js":"~0.4.1"
+  },
+  "devDependencies": {
+	"eyes": "~0.1.8"
+	},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ironicnet/gamershelves.git"
+  },
+  "keywords": [
+    "gamer",
+    "steam",
+    "open",
+    "source"
+  ],
+  "author": "Ezequiel Calderara",
+  "license": "GPL V2",
+  "bugs": {
+    "url": "https://github.com/ironicnet/gamershelves/issues"
+  },
+  "homepage": "https://github.com/ironicnet/gamershelves"
+}
