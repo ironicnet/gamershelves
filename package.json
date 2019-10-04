@@ -6,7 +6,7 @@
   "dependencies": {
     "express": "~3.4.8",
 	"underscore": "~1.6.0",
-	"underscore.string":"~2.3.3",
+	"underscore.string":"~3.3.5",
 	"xml2js":"~0.4.1"
   },
   "devDependencies": {
